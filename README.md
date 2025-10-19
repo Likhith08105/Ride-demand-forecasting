@@ -1,78 +1,67 @@
-# Ride Demand Forecasting — Likhith Tech Sol
+# 🚖 Ride Demand Forecasting using Machine Learning
 
-This repository is a *ready-to-run* Flask + XGBoost project for forecasting ride demand. It's set up for easy local development and deployment to **Render**.
-Branding: **Likhith Tech Sol**
-
----
-## Contents
-- `data/` — expected location for the downloaded NYC taxi CSV (user must download or use Kaggle API)
-- `notebooks/` — Jupyter notebook for EDA & model training (optional)
-- `model/` — saved model (`ride_demand_model.pkl`) will be stored here after training
-- `app/` — Flask application and templates
-- `train.py` — script to download (via Kaggle) and train the model (creates the model file)
-- `requirements.txt` — Python dependencies
-- `Procfile` — for Render (uses gunicorn)
-- `.gitignore` — ignores virtualenv, dataset, model files
+A **Flask-based Machine Learning web app** that predicts hourly ride demand for services like Rapido, Ola, or Uber using environmental and time-based features such as temperature, humidity, wind speed, and weather conditions.
 
 ---
-## Quick start (local)
 
-### 1) Clone & enter
-```bash
-# after you unzip or git clone
-cd ride-demand-forecasting-likhith-tech-sol
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# macOS / Linux
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2) Provide dataset (two options)
-
-**Option A (recommended) — use Kaggle API**
-
-1. Create a Kaggle account and get API credentials. Then set environment variables:
-```bash
-export KAGGLE_USERNAME=your_kaggle_username
-export KAGGLE_KEY=your_kaggle_key
-# On Windows (PowerShell)
-setx KAGGLE_USERNAME "your_kaggle_username"
-setx KAGGLE_KEY "your_kaggle_key"
-```
-
-2. Run the training script (it will download one month of NYC yellow taxi data and train the model):
-```bash
-python train.py --dataset kaggle --file yellow_tripdata_2023-01.csv
-```
-
-**Option B — manual download**
-
-1. Download a CSV from Kaggle (e.g. `yellow_tripdata_2023-01.csv`) and place it into `data/`.
-2. Run training:
-```bash
-python train.py --dataset local --file yellow_tripdata_2023-01.csv
-```
-
-### 3) Start the Flask app (after training finishes and model exists)
-```bash
-cd app
-python app.py
-# then open http://127.0.0.1:5000 in your browser
-```
-
-### 4) Deploy to Render
-- Create a GitHub repo and push your project.
-- Create a new Web Service on Render, connect to the repo.
-- Build command: `pip install -r requirements.txt`
-- Start command (Render will use `Procfile`): `gunicorn app.app:app`
+## 📊 Project Overview
+The goal of this project is to build a **data-driven model** capable of forecasting real-time ride demand based on historical ride patterns and environmental factors.  
+It demonstrates an **end-to-end Data Science workflow**, covering:
+- Exploratory Data Analysis (EDA)
+- Feature Engineering
+- Model Building (using Scikit-Learn)
+- Flask Integration for Web Deployment
+- Frontend UI built using HTML + Tailwind CSS + Chart.js
 
 ---
-## Notes & Tips
-- Training uses `XGBoost` and aggregates ride counts by (day_of_week, hour) for a simple but strong baseline.
-- You can extend features (borough, weather, holidays) in `train.py` and `notebooks/model_training.ipynb`.
-- If you run into memory limits when training on a full month, sample or aggregate the CSV using `pandas` chunking.
+
+## ⚙️ Tech Stack
+| Layer | Tools & Libraries |
+|-------|-------------------|
+| **Language** | Python 3 |
+| **Framework** | Flask |
+| **ML Libraries** | Pandas, NumPy, Scikit-learn, Joblib |
+| **Visualization** | Chart.js, Matplotlib |
+| **Frontend** | HTML5, TailwindCSS |
+| **Version Control** | Git & GitHub |
 
 ---
-Made with ❤️ by **Likhith Tech Sol**
+
+## 🧠 Machine Learning Pipeline
+
+1. **Data Preprocessing**
+   - Handling missing values  
+   - Encoding categorical features (e.g., weather conditions)  
+   - Scaling numerical features using `MinMaxScaler`  
+
+2. **Feature Engineering**
+   - Extracted time features: year, month, hour, day_of_week  
+   - Integrated weather & environment factors like temperature, humidity, wind speed  
+
+3. **Model Training**
+   - Algorithm: `RandomForestRegressor` (tuned via GridSearchCV)  
+   - Evaluated on RMSE, MAE, and R² metrics  
+
+4. **Model Deployment**
+   - Trained model serialized using `joblib`  
+   - Flask app serves real-time predictions through a web interface  
+
+---
+
+## 🌦 Input Features
+
+| Feature | Description |
+|----------|-------------|
+| **Year** | Current year (e.g., 2025) |
+| **Month** | Month number (1–12) |
+| **Day of Week** | 0 = Monday … 6 = Sunday |
+| **Hour** | Hour of the day (0–23) |
+| **Temperature (°C)** | Ambient temperature |
+| **Humidity (%)** | Relative humidity |
+| **Wind Speed (km/h)** | Speed of wind |
+| **Weather Condition** | Clear, Cloudy, Rainy, Snowy, or Fog |
+
+---
+
+## 🧩 Project Structure
+
