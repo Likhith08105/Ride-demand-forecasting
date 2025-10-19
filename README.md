@@ -173,13 +173,16 @@ You can deploy this app for free on:
 
 ---
 
-## 👨‍💻 Author
+## Author
 
--Likhith
--Data Science & Machine Learning Enthusiast
--📫 GitHub: https://github.com/<your-username>
+- **Likhith** – Data Science & Machine Learning Enthusiast  
+- **GitHub:** [https://github.com/](https://github.com/)
 
-“Transforming data into insight, and insight into intelligent ride allocation.” — Likhith Tech Sol 🚀
+> “Transforming data into insight, and insight into intelligent ride allocation.”  
+> — Likhith Tech Sol 🚀
+
+## License
+
 
 ---
 
