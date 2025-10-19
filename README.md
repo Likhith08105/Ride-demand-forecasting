@@ -4,11 +4,6 @@ A **Machine learning project** demonstrating end-to-end workflow, including data
 
 ---
 
-## 📊 Project Overview
-
-This project demonstrates an **end-to-end Data Science workflow** from data collection to deployment.  
-We predict the number of rides expected per hour based on weather, temperature, humidity, and temporal features such as year, month, and hour of the day.
-
 ---
 
 ## 📊 Project Overview
@@ -20,7 +15,9 @@ The app features:
 - Clean, professional full-screen UI with animated background 🌆  
 - Real-time predictions via a trained ML model ⚙️  
 - Interactive chart showing average ride demand by hour 📈  
-- Flask backend + TailwindCSS frontend + Chart.js visualization  
+- Flask backend + TailwindCSS frontend + Chart.js visualization
+
+   
 
 ---
 
