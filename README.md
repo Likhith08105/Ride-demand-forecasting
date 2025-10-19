@@ -175,9 +175,9 @@ You can deploy this app for free on:
 
 ## 👨‍💻 Author
 
-Likhith
-Data Science & Machine Learning Enthusiast
-📫 GitHub: https://github.com/<your-username>
+-Likhith
+-Data Science & Machine Learning Enthusiast
+-📫 GitHub: https://github.com/<your-username>
 
 “Transforming data into insight, and insight into intelligent ride allocation.” — Likhith Tech Sol 🚀
 
